@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" 
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Borel&display=swap');
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #C51CFD, #FD1C9C);
+  }
+  
+  .clr{
+    background: #fff;
+  }
+  
+  
+  #btn{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #FF0056, #FF0DC7);
+    font-size: 30px;
+  }
+  
+  #popup{
+    font-size: 20pc;
+    display:none;
+    position: relative;
+  }
+  
+  .popup::before{
+    content:"fuck you";
+    position: absolute;
+    font-size: 32px;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    background-image: linear-gradient( #046CF2, #04E1F2);
+    font-family: 'Borel', cursive;
+  }
+  
+  #popup i{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    background-image: linear-gradient(67deg, #FF266D, #9526FF);
+  }
+  
+  #name{
+    font-size: 25px;
+    position: absolute;
+    top: 58%;
+    right: 39%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    background-image: linear-gradient( #046CF2, #04E1F2);
+    font-family: 'Borel', cursive;
+  }
+  #song{
+    display: none;
+  }
+  
+</style>
+
+<body>
+  
+  <div class="container">
+    <div class="button" id="button">
+      <button id="btn">Click Me</button>
+    </div>
+    
+    <div class="popup" id="popup">
+      <i class="fa-solid fa-hand-middle-finger fa-bounce"></i>
+      <span id="name"></span>
+    </div>
+    <audio controls id="song">
+      <source src="Mahesh.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+  
+ <script>
+   
+   let popup = document.getElementById('popup');
+   let button = document.getElementById('btn');
+  let name = document.getElementById('name');
+  let songs = document.getElementById('song');
+  
+  
+  
+  
+  button.addEventListener('click', run);
+   
+   function run(){
+     let inputName = prompt('Enter your Name');
+     popup.style.display = 'block';
+     button.style.display = 'none';
+     name.innerText = inputName;
+     songs.play();
+     
+     setTimeout(() => {
+       popup.style.display = 'none';
+       button.style.display = 'block';
+       songs.pause();
+     }, 8000);
+     }
+   
+   
+ </script>
+  
+</body>
+
+</html>
